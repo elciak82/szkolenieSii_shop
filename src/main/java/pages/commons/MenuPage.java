@@ -1,15 +1,21 @@
 package pages.commons;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import pages.BasePage;
 import pages.basket.BasketPage;
+import pages.products.SearchResultPage;
 import pages.user.SignInPage;
 
-public class MenuPage extends BasePage {
+public class MenuPage  {
+    private WebDriver driver;
+
     public MenuPage(WebDriver driver){
-        super(driver); //bo dziedziczymy z Base wiec musi być botam jest konstruktor
+        this.driver = driver; //jesśli super tzn ze dziedziczymy z Base wiec musi być botam jest konstruktor
+        PageFactory.initElements(driver, this);
 
     }
 
@@ -22,15 +28,22 @@ public class MenuPage extends BasePage {
     @FindBy (css = "#_desktop_user_info a")
     private WebElement signIn;
 
+    @FindBy (css = ".account")
+    private WebElement userName;
 
-    public MenuPage searchForProduct (String name){
+    @FindBy (css = ".logout")
+    private WebElement signOut;
+
+
+    public SearchResultPage searchForProduct(String name) {
         searchInput.sendKeys(name);
-        return this;
+        searchInput.sendKeys(Keys.ENTER);
+        return new SearchResultPage(driver);
     }
 
     public BasketPage openBasketPage(){
         basketQuantity.click();
-        return new BasketPage(getDriver());
+        return new BasketPage(driver);
     }
 
     public int getBasketQuantity(){
@@ -42,7 +55,11 @@ public class MenuPage extends BasePage {
 
     public SignInPage goToSignInPage(){
         signIn.click();
-        return new SignInPage(getDriver());
+        return new SignInPage(driver);
+    }
+
+    public String getDisplayedUserName(){
+        return userName.getText();
     }
 
 }

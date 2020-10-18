@@ -11,7 +11,7 @@ public class SignInPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(css = "#form-control [name = 'email']")
+    @FindBy(css = ".login-form [name = 'email']")
     private WebElement emailInput;
 
     @FindBy (css = "[name = 'password']")

@@ -42,6 +42,6 @@ public class RegistrationPage extends BasePage {
                 genderElement.click();
             }
         }
-
+        registerUserButton.click();
     }
 }
