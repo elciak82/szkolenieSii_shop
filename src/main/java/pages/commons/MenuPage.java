@@ -14,7 +14,7 @@ public class MenuPage extends BasePage {
     }
 
     @FindBy (css = ".ui-autocomplete-input")
-    private WebElement searchImput;
+    private WebElement searchInput;
 
     @FindBy (css = ".cart-products-count")
     private WebElement basketQuantity;
@@ -24,7 +24,7 @@ public class MenuPage extends BasePage {
 
 
     public MenuPage searchForProduct (String name){
-        searchImput.sendKeys(name);
+        searchInput.sendKeys(name);
         return this;
     }
 
