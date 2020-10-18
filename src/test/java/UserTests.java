@@ -3,7 +3,7 @@ import models.User;
 import pages.commons.MenuPage;
 import providers.UserFactory;
 
-public class UserTest extends BaseTest {
+public class UserTests extends BaseTest {
 
     public void shouldRegisterNewUser() {
         User randomUser = new UserFactory().getUserToRegister();

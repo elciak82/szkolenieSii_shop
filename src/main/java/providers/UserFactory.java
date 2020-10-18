@@ -16,7 +16,7 @@ public class UserFactory {
     public User getAlreadyRegisteredUser() {
         return new User("Jan", "Kowalski",
         "werty", "j@pl", 1); // to powinno być brane z bazy banych, lub procedura sql
-        //najlepiej nowy użytkownik, stwóż a potem usuń
+        //najlepiej nowy użytkownik, stwórz a potem usuń
     }
 
     private String getRandomText(){
